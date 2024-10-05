@@ -1,0 +1,38 @@
+
+<div class=" content">
+  <div class=" row">
+    <div class=" col-md-12">
+      <div class=" card">
+        <div class=" card-header">
+          <h4 class=" card-title">Companies bill</h4>
+        </div>
+        <div class=" card-body">
+          <div class=" table-responsive">
+            <table class=" table tablesorter" id="">
+              <thead class=" text-primary">
+                <tr>
+                  <th>ID</th>
+                  <th>Company name</th>
+                  <th>Month</th>
+                  <th class=" text-center">Office rent fee</th>
+                  <th class=" text-center">Total service fee</th>
+                  <th class=" text-center">Total monthly cost</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let bill of bills; index as i; first as isFirst">
+                  <td>{{bill._id}}</td>
+                  <td>{{bill.company_name}}</td>
+                  <td>{{bill.month}}</td>
+                  <td class=" text-center">{{bill.office_rent_fee}}$</td>
+                  <td class=" text-center">{{bill.total_service_fee}}$</td>
+                  <td class=" text-center">{{bill.total_monthly_cost}}$</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

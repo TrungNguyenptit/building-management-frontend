@@ -1,0 +1,39 @@
+
+<div class=" content">
+  <div class="row">
+    <label for="startDate">Select a month</label>
+  </div>
+  <div class=" row">
+    <div class=" col-md-12">
+      <div class=" card">
+        <div class=" card-header">
+          <h4 class=" card-title">Buidling staffs monthly salary</h4>
+        </div>
+        <div class=" card-body">
+          <div class=" table-responsive">
+            <table class=" table tablesorter" id="">
+              <thead class=" text-primary">
+                <tr>
+                  <th>ID</th>
+                  <th>Staff code</th>
+                  <th>Full name</th>
+                  <th>Rank</th>
+                  <th class=" text-center">Actual monthly salary</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let staff of staffs; index as i; first as isFirst">
+                  <td>{{staff.staff_id}}</td>
+                  <td>{{staff.staff_code}}</td>
+                  <td>{{staff.full_name}}</td>
+                  <td>{{staff.rank}}</td>
+                  <td class=" text-center">{{staff.actual_month_salary}}$</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

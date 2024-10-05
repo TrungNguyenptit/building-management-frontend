@@ -1,0 +1,45 @@
+<div class=" content">
+  <div class="row">
+    <label for="startDate">Select a day</label>
+    <input [formControl]="day" id="startDate" class="form-control employee" style="    width: 400px;
+    margin-bottom: 22px;
+    margin-top: 20px;" type="date" />
+  </div>
+  <div *ngFor="let com of companies; index as i; first as isFirst" class=" row">
+    <div class=" col-md-12">
+      <div class=" card">
+        <div class=" card-header">
+          <h4 class=" card-title">{{com.company_name}}</h4>
+        </div>
+        <div class=" card-body">
+          <div class=" table-responsive">
+            <table class=" table tablesorter" id="">
+              <thead class=" text-primary">
+                <tr>
+                  <th>ID</th>
+                  <th>Employee name</th>
+                  <th>Access card</th>
+                  <th>Entry count</th>
+                  <th>Exit count</th>
+                  <th>Access logs</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let em of companies[i].employess; index as k; first as isFirst">
+                  <td>{{em.employee_id}}</td>
+                  <td>{{em.employee_name}}</td>
+                  <td>{{em.access_card}}</td>
+                  <td>{{em.entry_count}}</td>
+                  <td>{{em.exit_count}}</td>
+                  <td><code>
+                    <pre>{{em.access_logs |json}}</pre>
+                </code></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
