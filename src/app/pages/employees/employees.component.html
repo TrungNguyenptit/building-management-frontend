@@ -1,9 +1,10 @@
 <div class=" content">
   <div class="row">
+    <div class=" form-group">
     <label for="startDate">Select a day</label>
-    <input [formControl]="day" id="startDate" class="form-control employee" style="    width: 400px;
+    <input [formControl]="day" id="startDate" class="form-control employee" style="width: 250px;
     margin-bottom: 22px;
-    margin-top: 20px;" type="date" />
+    margin-top: -3px;" type="date" /></div>
   </div>
   <div *ngFor="let com of companies; index as i; first as isFirst" class=" row">
     <div class=" col-md-12">

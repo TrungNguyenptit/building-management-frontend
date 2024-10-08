@@ -16,11 +16,12 @@ export class BuildingStaffsComponent implements OnInit {
   staffs:any;
   name = 'Angular';
   modelDate = '';
-  date = new FormControl();
+  year = new FormControl('2024');
+  month = new FormControl((new Date().getMonth() + 1).toString());
   constructor(private buildingStaffsService: BuildingStaffsService) {}
 
   ngOnInit() {
-    this.buildingStaffsService.getBuildingStaffsSalary().subscribe(staffs => this.staffs = staffs);
+    this.buildingStaffsService.getBuildingStaffsSalary(this.concatMonth()).subscribe(staffs => this.staffs = staffs);
   }
 
   onOpenCalendar(container) {
@@ -28,5 +29,13 @@ export class BuildingStaffsComponent implements OnInit {
       container._store.dispatch(container._actions.select(event.date));
     };     
     container.setViewMode('month');
+   }
+
+   onSearch(){
+    this.buildingStaffsService.getBuildingStaffsSalary(this.concatMonth()).subscribe(staffs => this.staffs = staffs);
+   }
+
+   concatMonth(): string {
+    return this.year.value + '-' +this.month.value;
    }
 }
