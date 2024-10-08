@@ -1,7 +1,30 @@
 
 <div class=" content">
-  <div class="row">
-    <label for="startDate">Select a month</label>
+  <div class=" row">
+    <div class=" col-md-2 pr-md-1">
+      <div class=" form-group">
+        <label> Year </label>
+        <input
+          class=" form-control"
+          [formControl]="year"
+          placeholder="Year"
+          type="text"
+        />
+      </div>
+    </div>
+    <div class=" col-md-2 pl-md-1">
+      <div class=" form-group">
+        <label> Month </label>
+        <input
+          class=" form-control"
+          [formControl]="month"
+          placeholder="Month"
+          type="text"
+        />
+      </div>
+    </div>
+    <button class="btn btn-fill btn-danger" style="    margin-top: 30px;
+    height: 38px;" type="submit" (click)="onSearch()">Search</button>
   </div>
   <div class=" row">
     <div class=" col-md-12">

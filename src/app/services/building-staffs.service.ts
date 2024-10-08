@@ -7,12 +7,12 @@ import { map, catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class BuildingStaffsService {
-  private apiUrl = 'http://localhost:3000/building-staffs/salary?month=2024-09';
+  private apiUrl = 'http://localhost:3000/building-staffs/salary';
 
   constructor() { }
 
-  getBuildingStaffsSalary(): Observable<any[]> {
-    return from(fetch(this.apiUrl).then(response => response.json())).pipe(
+  getBuildingStaffsSalary(month:string): Observable<any[]> {
+    return from(fetch(`${this.apiUrl}?month=${month}`).then(response => response.json())).pipe(
       map(data => {
         // Process data if needed
         return data;
