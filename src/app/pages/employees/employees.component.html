@@ -1,10 +1,11 @@
 <div class=" content">
   <div class="row">
     <div class=" form-group">
-    <label for="startDate">Select a day</label>
-    <input [formControl]="day" id="startDate" class="form-control employee" style="width: 250px;
+      <label for="startDate">Select a day</label>
+      <input [formControl]="day" id="startDate" class="form-control employee" style="width: 250px;
     margin-bottom: 22px;
-    margin-top: -3px;" type="date" /></div>
+    margin-top: -3px;" type="date" />
+    </div>
   </div>
   <div *ngFor="let com of companies; index as i; first as isFirst" class=" row">
     <div class=" col-md-12">
@@ -13,7 +14,7 @@
           <h4 class=" card-title">{{com.company_name}}</h4>
         </div>
         <div class=" card-body">
-          <div class=" table-responsive">
+          <div>
             <table class=" table tablesorter" id="">
               <thead class=" text-primary">
                 <tr>
@@ -32,9 +33,26 @@
                   <td>{{em.access_card}}</td>
                   <td>{{em.entry_count}}</td>
                   <td>{{em.exit_count}}</td>
-                  <td><code>
-                    <pre>{{em.access_logs |json}}</pre>
-                </code></td>
+                  <td>
+                    <div >
+                      <table class=" table tablesorter" id="">
+                        <thead class=" text-primary">
+                          <tr>
+                            <th>location</th>
+                            <th>entry time</th>
+                            <th>exit time</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let log of em.access_logs; index as k; first as isFirst">
+                            <td>{{log.location}}</td>
+                            <td>{{log.entry_time}}</td>
+                            <td>{{log.exit_time}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
                 </tr>
               </tbody>
             </table>
